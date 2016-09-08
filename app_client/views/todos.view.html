@@ -1,0 +1,111 @@
+<div class="container-fluid">
+
+
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="title">{{greeting}} </span>
+            <span ng-class="alert" class="num-wrapper"> {{numCompleted("false")}}</span>
+            <span>Data is periodically erased from server.</span> <span ng-show="alrt" class="red-text">ALL TODOS DESTROYED</span>
+            <br>
+        </div>
+       <br>
+        
+        <div class="col-xs-12">
+          
+            
+            <br>
+            <form>
+            <div class="input-group col-xs-5">
+                <input type="text" ng-model="newtask" value="" placeholder="Enter new todo" class="form-control" />
+                <span class="input-group-btn">
+             
+                    
+                <button type="submit" ng-click="addTodo(newtask)" class="btn btn-default">go</button>
+            </span>
+           
+                
+            </div>
+            </form>
+            <!-- /input-group -->
+        </div>
+      
+        
+      
+        <div class="col-xs-12">
+            <br>
+          
+            
+            Show Completed?
+            <input type="checkbox" ng-model="showCompleted" />
+        </div>
+    
+        
+        <div class="col-xs-12">
+            <br>
+            Number of Completed Tasks: <span class="num-wrapper"> {{numCompleted("true")}}</span></div>
+
+  
+        
+    </div>
+
+  
+    <br>
+    <div class="row">
+    <div class="col-xs-12 col-md-6">
+        <div class="panel panel-default">
+            <table class="table table-striped">
+
+                <thead>
+                    <th>Todo</th>
+                    <th>Mark </th>
+
+
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="todo in todos | showComp:showCompleted | orderBy:'task'">
+
+                        <td>{{todo.task}}</td>
+                        <td>
+                            <input type="checkbox" ng-model="todo.completed" ng-change="updatestat(todo)"/>
+                        </td>
+                      
+                        
+                        <td>
+                            <button class="btn btn-default" type="button" ng-click="update(todo)">Edit</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-default" type="button" ng-click="destroy(todo._id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+        <br>
+        <div class=" row editFormWrapper">
+            <div id="editForm" ng-show="editForm" class="col-xs-12">
+
+                <label>Edit task:
+                    <input type="text" ng-model="taskedit.task" class="form-control" />
+                    <button ng-click="cancel()" class="btn btn-default">
+                        Cancel
+                    </button>
+                    <button class="btn btn-default" ng-click="save(taskedit)">
+                        Save
+                    </button>
+                </label>
+            </div>
+
+        </div>
+    </div>
+       
+        
+    </div>
+
+</div>
+<br>
+

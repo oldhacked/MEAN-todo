@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <title>TODO TEST</title>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+
+    <script src="/js/angular.min.js"></script>
+
+
+    <script src="/js/angular-route.min.js"></script>
+    <script src="/ngApp.js"></script>
+    <script src="/controllers/todosController.js"></script>
+    <script src="/controllers/homeController.js"></script>
+    <script src="/filters/showComp.js"></script>
+    <script src="/services/todoservice.js"></script>
+    <script src="/directives/todoRow/todoRow.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    
+    <base href="/" />
+
+    <style>
+        .title {
+            color: deepskyblue;
+            font-size: 30px;
+            font-weight: 600;
+        }
+        
+        .num-wrapper {
+            padding: 5px 8px;
+            background: #888888;
+            color: aliceblue;
+            margin-top: -5px !important;
+        }
+        
+        .strike {
+            color: grey;
+            text-decoration: line-through;
+        }
+        
+        .chillin {
+            background: #40dbc9;
+        }
+        
+        .warning {
+            background: #ff9553;
+        }
+        
+        .danger {
+            background: #db3030;
+        }
+        
+        .red-text {
+            color: red;
+        }
+        
+        .ace_editor {
+            height: 200px;
+            padding: 20px;
+            width: 500px;
+            margin-left: 60px;
+        }
+        
+        .editor {}
+        
+        .editFormWrapper {
+            height: 500px;
+        }
+
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <nav ng-include="'partials/nav.part.html'" class="navbar navbar-default"> </nav>
+
+
+    <div ng-view>
+
+    </div>
+
+</body>
+
+</html>
